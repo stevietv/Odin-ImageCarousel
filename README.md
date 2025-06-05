@@ -1,8 +1,7 @@
-# Template Project
+# Image Carousel Exercise
 
-Template Project including:
+A simple image carousel:
 
-* npm packages
-* webpack setup
-* eslint
-* prettier
+* navigation buttons for previous and next
+* navigation dots for all items
+* auto scroll when no mouse over
