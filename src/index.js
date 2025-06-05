@@ -1,2 +1,3 @@
-import './styles.css';
-import './resetStyles.css';
+import { imageCarousel } from './imageCarousel';
+
+imageCarousel('carousel');

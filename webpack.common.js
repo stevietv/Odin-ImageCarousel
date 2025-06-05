@@ -1,23 +1,26 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const path = require("path");
+const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
 
 module.exports = {
-    entry: "./src/index.js",
-    output: {
-        filename: "main.js",
-        path: path.resolve(__dirname, "dist"),
-        clean: true,
-    },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: "./src/template.html"
+        new HtmlBundlerPlugin({
+          entry: [{
+            import: "./src/template.html",
+            filename: "index.html",
+            data: { title: "Home" },
+          }],
+          js: {
+            filename: "[name].[contenthash:8].js",
+          },
+          css: {
+            filename: 'css/[name].[contenthash:8].css',
+          },
         })
     ],
     module: {
         rules: [
             {
                 test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
+                use: ["css-loader"],
             },
             {
                 test: /\.(png|jpg|jpeg|gif)$/i,
